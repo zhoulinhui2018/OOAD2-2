@@ -500,3 +500,6 @@ CREATE TABLE `user` (
   `is_deleted` tinyint(1) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
 );
+
+insert into ad(id,link,name,content) values
+(1,"as","zhou","linhui");
