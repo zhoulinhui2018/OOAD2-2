@@ -1,59 +1,68 @@
 package xmu.oomall.domain;
 
-import ch.qos.logback.classic.pattern.ClassOfCallerConverter;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
- * @Author: Ming Qiu
- * @Description:团购活动
- * 该对象不可以删除
- * @Date: Created in 15:17 2019/11/5
+ * @Author: 数据库与对象模型标准组
+ * @Description:团购规则信息
+ * @Data:Created in 14:50 2019/11/29
  * @Modified By:
  **/
-public class GroupOnRule{
+
+public class GroupOnRule {
     private Integer id;
-    /**
-     * 团购活动结束时间
-     */
 
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModified;
+    private Boolean beDeleted;
+    /*
+     *团购开始时间
+     * */
+    private LocalDateTime startTime;
+    /*
+     *团购结束时间
+     * */
     private LocalDateTime endTime;
-
-    private LocalDateTime addTime;
-    private LocalDateTime updateTime;
-    private Boolean beDeleted = false;
-
-    /****************************************************
-     * 生成代码
-     ****************************************************/
+    /*
+    *判断团购是否还在进行中
+    * */
+    private Boolean statusCode;
+    /*
+    * 团购等级（满多少人组团多少折扣）
+    * */
+    private String grouponLevelStragety;
+    /*
+    *团购产品id
+    * */
+    private Integer productId;
 
     @Override
     public String toString() {
         return "GroupOnRule{" +
                 "id=" + id +
-                ", endTime=" + endTime +
-                ", addTime=" + addTime +
-                ", updateTime=" + updateTime +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
                 ", beDeleted=" + beDeleted +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", statusCode=" + statusCode +
+                ", grouponLevelStragety='" + grouponLevelStragety + '\'' +
+                ", productId=" + productId +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         GroupOnRule that = (GroupOnRule) o;
-        return getId().equals(that.getId());
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(id);
     }
 
     public Integer getId() {
@@ -64,28 +73,20 @@ public class GroupOnRule{
         this.id = id;
     }
 
-    public LocalDateTime getEndTime() {
-        return endTime;
+    public LocalDateTime getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
+    public void setGmtCreate(LocalDateTime gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public LocalDateTime getAddTime() {
-        return addTime;
+    public LocalDateTime getGmtModified() {
+        return gmtModified;
     }
 
-    public void setAddTime(LocalDateTime addTime) {
-        this.addTime = addTime;
-    }
-
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
+    public void setGmtModified(LocalDateTime gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
     public Boolean getBeDeleted() {
@@ -94,5 +95,45 @@ public class GroupOnRule{
 
     public void setBeDeleted(Boolean beDeleted) {
         this.beDeleted = beDeleted;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public Boolean getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(Boolean statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public String getGrouponLevelStragety() {
+        return grouponLevelStragety;
+    }
+
+    public void setGrouponLevelStragety(String grouponLevelStragety) {
+        this.grouponLevelStragety = grouponLevelStragety;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 }
