@@ -47,7 +47,7 @@ public class Ad {
     private LocalDateTime endTime;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
-    private Boolean beDelete;
+    private Boolean isDeleted;
 
     @Override
     public String toString() {
@@ -63,7 +63,7 @@ public class Ad {
                 ", endTime=" + endTime +
                 ", gmtCreate=" + gmtCreate +
                 ", gmtModified=" + gmtModified +
-                ", beDelete=" + beDelete +
+                ", beDelete=" + isDeleted +
                 '}';
     }
 
@@ -169,10 +169,10 @@ public class Ad {
     }
 
     public Boolean getBeDelete() {
-        return beDelete;
+        return isDeleted;
     }
 
     public void setBeDelete(Boolean beDelete) {
-        this.beDelete = beDelete;
+        this.isDeleted = beDelete;
     }
 }
